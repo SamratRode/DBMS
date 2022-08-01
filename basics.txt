@@ -1,0 +1,69 @@
+USE (DATABASE);
+
+SELECT ((DISTINCT))(COLUMNS)
+FROM (TABLE)
+WHERE (CONDITION)
+ORDER BY (PARAMETER) ((DESC))
+
+
+WHERE clause conditions
+>
+>=
+<
+<=
+=
+!=
+
+DATE format - 'YYYY-MM-DD'
+
+Multiple Conditions
+
+-AND
+-OR
+-NOT
+
+TO Combine multiple or can use IN
+
+-Example
+WHERE state IN ('FL','VA','GA');
+
+
+BETWEEN Operator
+
+select * from orders
+where OrderDate BETWEEN '1996-09-12' and '1997-02-21'
+
+LIKE Operator
+
+where last_name like 'b%' (% can be replaced by any number of characters)
+Returns all the last names starting with 'b'
+
+where last_name like 'b_' (_ can be replaced by one character only)
+Returns all the last names like by, ba, bc
+
+REGEXP operator
+
+where last_name REGEXP 'sam' (Returns all last names that have sam in it at any position)
+where last_name REGEXP '^sam' (start with sam)
+where last_name REGEXP 'sam$' (end with sam)
+where last_name REGEXP '^sam|sam$|abc' (start with sam or end with sam or have abc in the last name)
+where last_name REGEXP '[a-c][d-f]x'
+returns last names with first character from (a,b,c) second from (d,e,f) and last x
+Examples are - adx,aex,afx,bdx,bex,bfx,cdx,cex,cfx
+
+
+Dealing with NULL
+
+select * from orders where shipped_date IS NULL
+
+LIMIT
+
+SELECT * FROM CUSTOMERS ORDER BY points DESC LIMIT 3
+Alternatively LIMIT 6, 3 means ignore first 6 values show the rest 3
+
+Order of using different clauses
+1. SELECT 
+2. FROM
+3. WHERE
+4. ORDER BY
+5. LIMIT
